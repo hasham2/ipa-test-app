@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>In-App Purchases</h2>
+  <p><%= link_to "Create New",new_home_path%></p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Reference Name</th>
+        <th>Product ID</th>
+        <th>Last Modify Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @purchases.each do |p| %>
+      <% unless p.last_modfied_date.blank? %>
+      	<% date = DateTime.strptime(p.last_modfied_date.to_s,'%Q') %>
+      <% end %>
+      <tr>
+        <td><%= link_to p.reference_name,home_path(p.product_id) %></td>
+        <td><%= p.product_id %></td>
+        <td><%= date.strftime("%d %B %Y") %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

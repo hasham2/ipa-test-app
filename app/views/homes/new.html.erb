@@ -1,0 +1,30 @@
+<div class="container">
+<h4>Create In-App Purchases</h4>
+<%= form_tag(homes_path, method: :post) do %>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" name="name" required="required">
+  </div>
+  <div class="form-group">
+    <label for="reference_name">Reference Name:</label>
+    <input type="text" class="form-control" name="reference_name" required="required">
+  </div>
+  <div class="form-group">
+    <label for="product_id">Product ID:</label>
+    <input type="text" class="form-control" name="product_id" required="required">
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <select class="form-control">
+    	<% @tiers.each do |t| %>
+  		   <option value="#{t.first}"><%= t.last %></option>
+  		<% end %>
+  	</select> 
+  </div>
+  <div class="form-group">
+    <label for="product_id">Description:</label>
+    <textarea rows="4" cols="50" class="form-control" name="description"></textarea> 
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+<% end %>
+</div>

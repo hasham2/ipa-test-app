@@ -1,0 +1,21 @@
+<div class="container">
+  <h2><%= @product.reference_name %> In-App Purchases</h2>
+  <p><%= link_to "back to home",homes_path%></p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Reference Name</th>
+        <th>Product ID</th>
+        <th>Last Modify Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+       <td><%= @product.reference_name %></td>
+       <td><%= @product.product_id %></td>
+       <% date = DateTime.strptime(@product.last_modfied_date.to_s,'%Q') %>
+       <td><%= date.strftime("%d %B %Y") %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
